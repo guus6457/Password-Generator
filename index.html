@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" charset="UTF-8" src="//cdn.cookie-script.com/s/bcc6531969434449f64f843191f19362.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Password Generator</h1>
+        <div class="input-group">
+            <label for="length">Password Length:</label>
+            <input type="number" id="length" value="12" min="4" max="128">
+        </div>
+        <div class="checkbox-group">
+            <input type="checkbox" id="numbers"> <label for="numbers">Include Numbers</label>
+        </div>
+        <div class="checkbox-group">
+            <input type="checkbox" id="lowercase"> <label for="lowercase">Include Lowercase Letters</label>
+        </div>
+        <div class="checkbox-group">
+            <input type="checkbox" id="uppercase"> <label for="uppercase">Include Uppercase Letters</label>
+        </div>
+        <div class="checkbox-group">
+            <input type="checkbox" id="symbols"> <label for="symbols">Include Symbols</label>
+        </div>
+        <button class="generate-password" onclick="generatePassword()">Generate Password</button>
+        <button class="generate-password" onclick="downloadPassword()">Download Password</button>
+        <div id="password" class="password-display"></div>
+    </div>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Please generate a password first.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
