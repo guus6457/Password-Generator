@@ -1,30 +1,35 @@
+/* CSS styles for Password Generator in Light Mode */
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Nunito', sans-serif;
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #1e1e1e;
-    /* Dark mode background color */
-    color: #fff;
+    background-color: #fefefe;
+    /* White background */
+    color: #333;
+    /* Dark text color */
 }
 
 .container {
-    background-color: #2a2a2a;
-    /* Dark mode container background color */
+    -moz-box-shadow: 0px 0px 29px -4px rgba(0, 0, 0, 0.46);
+    background-color: #ffffff;
+    /* White background */
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: -20px 20px 60px #d9d9d9, 20px -20px 60px #ffffff;
     padding: 40px;
     width: 400px;
     text-align: center;
+    /* Light outline color */
 }
 
 h1 {
     margin-top: 0;
-    color: #ffffff;
-    /* Light blue */
+    color: #333;
+    /* Dark text color */
 }
 
 .input-group,
@@ -34,17 +39,19 @@ h1 {
 
 .input-group label,
 .checkbox-group label {
-    color: #fff;
+    color: #333;
+    /* Dark text color */
 }
 
 input[type="number"],
 input[type="checkbox"] {
     margin-right: 10px;
-    background-color: #373737;
-    /* Dark mode input background color */
-    color: #fff;
-    border: 1px solid #505050;
-    /* Dark mode input border color */
+    background-color: #f9f9f9;
+    /* Light gray background */
+    color: #333;
+    /* Dark text color */
+    border: 1px solid #ccc;
+    /* Light border color */
     padding: 8px;
     border-radius: 5px;
 }
@@ -53,33 +60,35 @@ input[type="checkbox"] {
     margin-top: 20px;
     padding: 15px;
     font-size: 20px;
-    background-color: #373737;
-    /* Dark mode input background color */
-    border-radius: 5px;
-    color: #fff;
+    background-color: #f9f9f9;
+    /* Light gray background */
+    border-radius: 8px;
+    color: #333;
+    /* Dark text color */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-button.generate-password {
+.generate-password {
     display: inline-block;
     margin: 10px;
-    padding: 10px 20px;
+    padding: 10px 50px;
     font-size: 16px;
     cursor: pointer;
-    background-color: #1a73e8;
-    /* Google blue color */
+    background-color: #007bff;
+    /* Blue button color */
     border: none;
     border-radius: 5px;
     color: #fff;
+    /* White text color */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s;
 }
 
-button.generate-password:hover {
-    background-color: #0055cc;
-    /* Darker shade of Google blue */
+.generate-password:hover {
+    background-color: #0056b3;
+    box-shadow: -20px 20px 20px #0000000e
+    /* Darker blue on hover */
 }
-
-
-/* Modal styles */
 
 .modal {
     display: none;
@@ -93,8 +102,8 @@ button.generate-password:hover {
 }
 
 .modal-content {
-    background-color: #2a2a2a;
-    /* Dark mode container background color */
+    background-color: #fff;
+    /* White modal background */
     margin: 15% auto;
     padding: 20px;
     border-radius: 10px;
@@ -112,13 +121,157 @@ button.generate-password:hover {
 
 .close:hover,
 .close:focus {
-    color: #fff;
+    color: #333;
+    /* Dark text color */
     text-decoration: none;
     cursor: pointer;
 }
 
 .modal p {
-    color: #fff;
+    color: #333;
+    /* Dark text color */
     font-size: 18px;
     margin-bottom: 15px;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #f9f9f9;
+    /* Light gray background */
+    padding: 10px 0;
+    text-align: center;
+}
+
+.privacy-terms {
+    margin-top: 20px;
+}
+
+.privacy-btn,
+.terms-btn {
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: #007bff;
+    /* Blue button color */
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    /* White text color */
+}
+
+.privacy-btn:hover,
+.terms-btn:hover {
+    background-color: #0056b3;
+    /* Darker blue on hover */
+}
+
+.info-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 9999;
+    transition: bottom 0.3s;
+    /* Add transition for smooth movement */
+}
+
+.info-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 9999;
+    transition: bottom 0.3s;
+    /* Add transition for smooth movement */
+}
+
+.info-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 9999;
+    transition: bottom 0.3s;
+    /* Add transition for smooth movement */
+}
+
+.info-icon {
+    font-family: 'Material Symbols Outlined', sans-serif;
+}
+
+.info-section {
+    position: fixed;
+    bottom: 20px;
+    /* Initial position, hidden below the viewport */
+    left: 50%;
+    transform: translateX(-50%) translateY(100%);
+    opacity: 0;
+    /* Initially hidden */
+    backdrop-filter: blur(10px);
+    /* Add blur effect */
+    background-color: rgba(249, 249, 249, 0.8);
+    /* Add transparency */
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    box-shadow: 0 4px 28px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    max-height: calc(100vh - 100px);
+    /* Adjust maximum height based on viewport height */
+    transition: opacity 0.3s, transform 0.3s;
+    /* Add transition for smooth visibility and blur */
+}
+
+.info-section p {
+    font-family: 'Nunito', sans-serif;
+    color: #333;
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+.info-section.active {
+    bottom: 70px;
+    /* Adjust position of text content */
+    opacity: 1;
+    /* Show text content */
+    transform: translateX(-50%) translateY(0);
+    /* Move text content up */
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    /* Adjust background color as needed */
+    text-align: center;
+    padding: 10px 0;
+    /* Add padding for better appearance */
+    /* Optional: Add shadow for separation */
 }

@@ -1,67 +1,98 @@
-const lowercaseChars = 'abcdefghijklmnopqrstuvwxyz';
-const uppercaseChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-const numberChars = '0123456789';
-const specialChars = '!@#$%^&*()-_+=';
-
+// Function to generate a random password
 function generatePassword() {
-    const length = document.getElementById('length').value;
-    const includeNumbers = document.getElementById('numbers').checked;
-    const includeLowercase = document.getElementById('lowercase').checked;
-    const includeUppercase = document.getElementById('uppercase').checked;
-    const includeSymbols = document.getElementById('symbols').checked;
+    var length = document.getElementById("length").value;
+    var includeNumbers = document.getElementById("numbers").checked;
+    var includeLowercase = document.getElementById("lowercase").checked;
+    var includeUppercase = document.getElementById("uppercase").checked;
+    var includeSymbols = document.getElementById("symbols").checked;
 
-    let charset = '';
-
+    // Check if any option is selected
     if (!includeNumbers && !includeLowercase && !includeUppercase && !includeSymbols) {
-        displayModal();
-        return;
+        // Display warning message
+        showModal();
+        return; // Exit function
     }
 
-    if (includeNumbers) charset += numberChars;
-    if (includeLowercase) charset += lowercaseChars;
-    if (includeUppercase) charset += uppercaseChars;
-    if (includeSymbols) charset += specialChars;
+    var charset = "";
+    if (includeNumbers) charset += "0123456789";
+    if (includeLowercase) charset += "abcdefghijklmnopqrstuvwxyz";
+    if (includeUppercase) charset += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    if (includeSymbols) charset += "!@#$%^&*()-_=+[{]}|;:,<.>/?";
 
-    let password = '';
-
-    for (let i = 0; i < length; i++) {
-        const randomIndex = Math.floor(Math.random() * charset.length);
+    var password = "";
+    for (var i = 0; i < length; i++) {
+        var randomIndex = Math.floor(Math.random() * charset.length);
         password += charset[randomIndex];
     }
 
-    document.getElementById('password').textContent = password;
+    // Display the generated password
+    document.getElementById("password").innerText = password;
 }
 
+// Function to download the generated password
 function downloadPassword() {
-    const password = document.getElementById('password').textContent;
-    if (!password) {
-        displayModal();
-        return;
+    var password = document.getElementById("password").innerText;
+    if (password) {
+        var element = document.createElement('a');
+        element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(password));
+        element.setAttribute('download', 'generated_password.txt');
+        element.style.display = 'none';
+        document.body.appendChild(element);
+        element.click();
+        document.body.removeChild(element);
+    } else {
+        showModal();
     }
-    const blob = new Blob([password], { type: 'text/plain' });
-    const url = window.URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'password.txt';
-    document.body.appendChild(a);
-    a.click();
-    window.URL.revokeObjectURL(url);
 }
 
-function displayModal() {
+// Function to display the modal
+function showModal() {
+    var modal = document.getElementById("myModal");
     modal.style.display = "block";
 }
 
-// Modal close functionality
-const modal = document.getElementById("myModal");
-const span = document.getElementsByClassName("close")[0];
-
-span.onclick = function() {
+// Function to close the modal
+function closeModal() {
+    var modal = document.getElementById("myModal");
     modal.style.display = "none";
 }
 
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
+// Function to enable dark mode
+function enableDarkMode() {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    localStorage.setItem('theme', 'dark');
+}
+
+// Function to disable dark mode
+function disableDarkMode() {
+    document.documentElement.setAttribute('data-theme', 'light');
+    localStorage.setItem('theme', 'light');
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const switchInput = document.querySelector('.switch input');
+
+    switchInput.addEventListener('change', function() {
+        if (this.checked) {
+            enableDarkMode();
+        } else {
+            disableDarkMode();
+        }
+    });
+
+    // Check local storage for theme preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        enableDarkMode();
+        switchInput.checked = true;
     }
+});
+
+function toggleInfoVisibility() {
+    var infoButton = document.getElementById("info-button");
+    var infoSection = document.getElementById("info-section");
+
+    // Toggle active class to move the button and reveal the text
+    infoButton.classList.toggle("active");
+    infoSection.classList.toggle("active");
 }
