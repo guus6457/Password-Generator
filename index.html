@@ -2,63 +2,69 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Password Generator</title>
-    <link rel="stylesheet" href="styles.css">
+  <script type="text/javascript" charset="UTF-8"
+    src="//cdn.cookie-script.com/s/c8cd08f5d02061d16af6a3a3dbd999be.js"></script>
+  <script src="script.js"></script>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Generator</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <div class="container">
-        <h1>Password Generator</h1>
-        <div class="input-group">
-            <label for="length">Password Length:</label>
-            <input type="number" id="length" value="12" min="4" max="128">
-        </div>
-        <div class="options">
-            <div class="checkbox-group">
-                <input type="checkbox" id="numbers"> <label for="numbers">Include Numbers</label>
-            </div>
-            <div class="checkbox-group">
-                <input type="checkbox" id="lowercase"> <label for="lowercase">Include Lowercase Letters</label>
-            </div>
-            <div class="checkbox-group">
-                <input type="checkbox" id="uppercase"> <label for="uppercase">Include Uppercase Letters</label>
-            </div>
-            <div class="checkbox-group">
-                <input type="checkbox" id="symbols"> <label for="symbols">Include Symbols</label>
-            </div>
-        </div>
-        <button class="generate-password" onclick="generatePassword()">Generate Password</button>
-        <button class="generate-password" onclick="downloadPassword()">Download Password</button>
-        <div id="password" class="password-display"></div>
+  <div class="container">
+    <h1>Password Generator</h1>
+    <div class="input-group">
+      <label for="length">Password Length:</label>
+      <input type="number" id="length" value="12" min="4" max="128">
     </div>
-
-    <button id="info-button" class="info-button" onclick="toggleInfoVisibility()">
-        <span class="material-symbols-outlined">
-            info
-            </span> <!-- Material Symbols Outlined icon -->
-    </button>
-
-    <div id="info-section" class="info-section">
-        <p>This is some text content that you can scroll to when clicking the info button.</p>
+    <div class="options">
+      <div class="checkbox-group">
+        <input type="checkbox" id="numbers"> <label for="numbers">Include Numbers</label>
+      </div>
+      <div class="checkbox-group">
+        <input type="checkbox" id="lowercase"> <label for="lowercase">Include Lowercase Letters</label>
+      </div>
+      <div class="checkbox-group">
+        <input type="checkbox" id="uppercase"> <label for="uppercase">Include Uppercase Letters</label>
+      </div>
+      <div class="checkbox-group">
+        <input type="checkbox" id="symbols"> <label for="symbols">Include Symbols</label>
+      </div>
     </div>
+    <button class="generate-password" onclick="generatePassword()">Generate Password</button>
+    <button class="generate-password" onclick="downloadPassword()">Download Password</button>
+    <div id="password" class="password-display"></div>
+  </div>
 
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <p>Please generate a password first.</p>
-        </div>
+  <button id="info-button" class="info-button" onclick="toggleInfoVisibility()">
+    <span class="material-symbols-outlined">
+      info
+    </span> <!-- Material Symbols Outlined icon -->
+  </button>
+
+  <div id="info-section" class="info-section">
+    <p>We do not store any passwords.</p>
+  </div>
+
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <p>Please generate a password first.</p>
     </div>
-    <footer>
-        <p>&copy; 2024 SkylineWeb. All rights reserved.</p>
-    </footer>
-    <script src="script.js"></script>
+  </div>
+  <footer>
+    <p>&copy; 2024 SkylineWeb. All rights reserved.</p>
+  </footer>
+
 </body>
 
 </html>
